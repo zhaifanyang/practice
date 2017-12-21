@@ -1,0 +1,7 @@
+body{background-color: #eee;}
+#nav{
+	background: black;
+}
+#nav li{
+	border-color: #fff;
+}

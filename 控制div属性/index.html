@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.outer{
+			width: 1000px;
+			margin: 0 auto;
+			text-align: center;
+		}
+		#box{
+			width: 100px;
+			height: 100px;
+			background-color: #000;
+			margin:10px auto;
+		}
+	</style>
+</head>
+<body>
+<div class="outer">
+	<input type="button" name="" value='变宽'>
+	<input type="button" name="" value='变高'>
+	<input type="button" name="" value='变色'>
+	<input type="button" name="" value='隐藏'>
+	<input type="button" name="" value='重置'>
+	<div id="box"></div>
+</div>
+<script>
+	var input = document.getElementsByTagName('input');
+	var box = document.getElementById('box');
+	var bAtt = ['width','height','background','display','display'];
+	var bVal = ['200px','200px','orange','none','block'];
+	function changeStyle(obj,attr,val){
+		obj.style[attr] = val;
+	}
+	for (var i = 0; i < input.length; i++) {
+		input[i].index = i;
+		input[i].onclick = function(){
+			//当前面比较为true，执行后面语句
+			this.index == input.length - 1 &&(box.style.cssText = '');
+			//清空行内样式效果box.style.cssText = ''
+			changeStyle(box,bAtt[this.index],bVal[this.index]);
+		}
+	}
+</script>
+</body>
+</html>
