@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body,ul,h2{margin: 0;padding: 0;}
+		a{text-decoration: none}
+		.outer{list-style: none;border: 1px solid #000;width: 560px;margin: 10px auto;padding: 0 0 10px 10px;}
+		.outer h2{text-align: center;font-size: 18px;line-height: 30px;margin-top: 10px}
+		ul{list-style: none}
+		ul:after{content: '';display: block;width: 0;height: 0;line-height: 0;clear: both;}
+		ul li{position: relative;text-align: center;float: left;margin: 10px 10px 0 0;}
+		ul li a{width: 80px;height: 80px;border: 1px solid #333;background-color: #f0f0f0;display: block;color:#666;padding:10px;}
+		ul li img{width: 128px;height: 128px;display:none;position: absolute;top:-14px;left:-14px;border: 2px solid #666;cursor: crosshair;}
+	</style>
+</head>
+<body>
+	<div class="outer">
+		<h2>展示-鼠标移过显示</h2>
+		<ul>
+			<li><a href="#">标题1/*</a><img src="images/1.jpg" alt=""></li>
+			<li><a href="#">标题2/*</a><img src="images/2.jpg" alt=""></li>
+			<li><a href="#">标题3/*</a><img src="images/3.jpg" alt=""></li>
+			<li><a href="#">标题4/*</a><img src="images/4.jpg" alt=""></li>
+			<li><a href="#">标题5/*</a><img src="images/5.jpg" alt=""></li>
+			<li><a href="#">标题6/*</a><img src="images/6.jpg" alt=""></li>
+			<li><a href="#">标题7/*</a><img src="images/7.jpg" alt=""></li>
+			<li><a href="#">标题8/*</a><img src="images/8.jpg" alt=""></li>
+			<li><a href="#">标题9/*</a><img src="images/9.jpg" alt=""></li>
+			<li><a href="#">标题10/*</a><img src="images/10.jpg" alt=""></li>
+		</ul>
+	</div>
+	<script>
+		var liArr = document.getElementsByTagName('ul')[0].getElementsByTagName('li');
+			for (var i = 0; i < liArr.length; i++) {
+				liArr[i].onmouseover = function(){
+					this.style.zIndex = '1';
+					var img = this.getElementsByTagName('img')[0];
+					img.style.display = 'block'
+				}
+				liArr[i].onmouseout= function(){
+					this.style.zIndex = '0';
+					var img = this.getElementsByTagName('img')[0];
+					img.style.display = 'none'
+				}
+			}
+	</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body,ul{margin: 0;padding: 0;background-color: #000;}
+		ul{list-style: none;}
+		ul{width: 212px;background-color: #fff;margin: 10px auto;border-radius: 5px;overflow: hidden;padding: 0 0 3px 3px;border: 5px solid #fff;}
+		ul li{float: left;width: 50px;height: 50px;border-radius: 3px;margin: 3px 3px 0 0;}
+		.first{position: relative;}
+		.first div{position: absolute;top: 0;left: 0;opacity: .5;width: 156px;height: 156px;background: #fff url(images/loading.gif)50% 50% no-repeat;display: none}
+		.first,.first img{width: 156px;height: 156px;}
+	</style>
+</head>
+<body>
+	<ul id="box">
+		<li class="first"><img src="images/big_10.jpg" alt=""><div></div></li>
+		<li><a href="javascript:void(0)"><img src="images/small_1.jpg" alt=""></a></li>
+		<li><a href="javascript:void(0)"><img src="images/small_2.jpg" alt=""></a></li>
+		<li><a href="javascript:void(0)"><img src="images/small_3.jpg" alt=""></a></li>
+		<li><a href="javascript:void(0)"><img src="images/small_4.jpg" alt=""></a></li>
+		<li><a href="javascript:void(0)"><img src="images/small_5.jpg" alt=""></a></li>
+		<li><a href="javascript:void(0)"><img src="images/small_6.jpg" alt=""></a></li>
+		<li><a href="javascript:void(0)"><img src="images/small_7.jpg" alt=""></a></li>
+		<li><a href="javascript:void(0)"><img src="images/small_8.jpg" alt=""></a></li>
+		<li><a href="javascript:void(0)"><img src="images/small_9.jpg" alt=""></a></li>
+		<li><a href="javascript:void(0)"><img src="images/small_10.jpg" alt=""></a></li>
+		<li><a href="javascript:void(0)"><img src="images/small_11.jpg" alt=""></a></li>
+	</ul>
+	<script>
+		var oImg = document.getElementById('box').getElementsByTagName('img'),
+			oDiv = document.getElementsByTagName('div')[0];
+		for (var i = 1; i < oImg.length; i++) {
+			oImg[i].onmouseover = function(){
+				var img = new Image();
+				img.src = oImg[0].src = this.src.replace(/small/,'big');
+				oDiv.style.display = "block";
+				img.complete ? oDiv.style.display = "none" : (oImg[0].onload = function() {oDiv.style.display = "none"})
+			}
+		}
+	</script>
+</body>
+</html>

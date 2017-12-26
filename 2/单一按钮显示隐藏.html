@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>显示/隐藏</title>
+	<style>
+		body,ul,li{margin: 0;padding: 0;}
+		body{font: 12px/1.5 Tahoma;}
+		ul{list-style: none}
+		a{text-decoration:none;}
+		.outer{width: 200px;border: 1px solid #aaa;margin: 10px auto;}
+		#list{border: 1px solid #fff;background-color: #ced3d7;line-height: 30px;padding: 0px 10px;color: #57646E;font-size: 14px;position: relative;cursor: pointer;}
+		#list span{position: absolute;right: 10px;top: 2px;transform-origin:bottom;transform: rotate(180deg);width: 10px;height: 10px;text-align: center;background: url('images/ico.gif') 0px -24px no-repeat;}
+		#list span.open{background-position: 0px 3px;}
+		ul{background-color: #e9edf2;padding-top: 1px;display:none;}
+		ul li{line-height: 25px;}
+		ul li a{color:#6b7980;display: block;padding-left: 10px;}
+		ul li a:hover{text-decoration: underline;background-color: #fff;}
+	</style>
+</head>
+<body>
+	<div class="outer">
+		<div id="list">播放列表...
+			<span class="open"></span>
+		</div>
+		<ul>
+			<li><a href="#">玩家之徒 - 蔡依林</a></li>
+			<li><a href="#">原谅我就是这样的女生 - 戴佩妮</a></li>
+			<li><a href="#">猜不透 - 丁当</a></li>
+			<li><a href="#">自导自演 - 周杰伦</a></li>
+			<li><a href="#">浪漫窝 - 弦子</a></li>
+			<li><a href="#">流年 - 王菲</a></li>
+		</ul>
+	</div>
+	<script>
+		var span = document.getElementsByTagName('span')[0],
+			ul = document.getElementsByTagName('ul')[0],
+			list = document.getElementById('list');
+			ulSty = ul.style;
+			list.onclick = function(){
+				span.className = span.className === 'open'?'':'open';
+				ulSty.display = ulSty.display==='block'?'none':'block';
+			}
+	</script>
+</body>
+</html>
