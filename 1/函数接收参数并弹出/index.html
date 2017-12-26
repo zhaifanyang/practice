@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	p{
+		text-align: center
+	}
+	input{
+		outline-color: #ccc
+	}
+	</style>
+</head>
+<body>
+	<p>
+		<input type="text" name="" value='北京市'>
+	</p>
+	<p>
+		<input type="text" name="" value='朝阳区'>
+	</p>
+	<p>
+		<input type="button" name="" value='传参'>
+	</p>
+	<script>
+		var  inp = document.getElementsByTagName('input');
+		inp[2].onclick = function(){
+			myFn(inp[0],inp[1]);
+		}
+		var myFn = function(a,b){
+			alert(a.value);
+			alert(b.value);
+		}
+	</script>
+</body>
+</html>

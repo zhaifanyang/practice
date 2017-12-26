@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{font:12px/1.5 Tahoma;}
+		.outer{width: 500px;margin: 0 auto;}
+		label{color: #999;}
+		button{margin: 10px 0}
+		p{font-size: 18px;color:red;}
+	</style>
+</head>
+<body>
+	<div class="outer">
+		<label><input type="text" value="1,2,3,4,5,6,7,8,9,10,11">	输入数字求和，以半角','号分割</label>
+		<br><button>求和</button>
+		<p></p>
+	</div>
+	<script>
+		var text = document.getElementsByTagName('input')[0],
+			btn = document.getElementsByTagName('button')[0],
+			p = document.getElementsByTagName('p')[0];
+		text.onkeyup = function(){
+			this.value = this.value.replace(/[^(\d)|(,)]/,'')
+		}	
+		btn.onclick = function(){
+			var sum = 0;
+			var input = document.getElementsByTagName('input')[0].value.split(',');
+			for (var i in input) {
+				sum += parseInt(input[i]);
+			}
+			p.innerHTML = sum;
+		}
+	</script>
+</body>
+</html>

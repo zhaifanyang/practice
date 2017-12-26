@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#outer{
+			width: 150px;
+			height: 150px;
+			margin: 0 auto;
+			background-color: #000;
+			color: #fff;
+			text-align: center;
+			font: 12px/1.5 Tahoma;
+			cursor: crosshair;
+			padding: 10px;
+			border: 10px solid #000;
+		}
+		#outer.hover{
+			border-color: red;
+			background-color: #ccc;
+			color: red
+		}
+	</style>
+</head>
+<body>
+	<div id="outer">
+		鼠标移入/移出
+	</div>
+	<script>
+		var out = document.getElementById('outer');
+		out.onmouseover = function(){
+			out.className = 'hover';
+		}
+		out.onmouseout = function(){
+			out.className = '';
+		}
+	</script>
+</body>
+</html>

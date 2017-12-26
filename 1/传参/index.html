@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box{
+			width: 100px;
+			height: 100px;
+			margin: 100px auto;
+			background-color: #000;
+			color: #fff;
+			text-align: center;
+			line-height: 100px;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			var input = document.getElementsByTagName('input'),
+				btn = document.getElementsByTagName('button'),
+				div = document.getElementsByTagName('div')[0];
+				btn[0].onclick = function(){
+					changestyle(div,input[0].value,input[1].value);
+				}
+				btn[1].onclick = function(){
+					div.removeAttribute('style');
+				}
+		}
+		function changestyle(obj,attr,val){
+			obj.style[attr] = val;
+		}
+	</script>
+</head>
+<body>
+	<label>属性：
+		<input type="text" name="">
+	</label>
+	<label>值：
+		<input type="text" name="">
+	</label>
+	<button>传参</button>
+	<button>重置</button>
+	<div class="box">设置参数</div>
+</body>
+</html>

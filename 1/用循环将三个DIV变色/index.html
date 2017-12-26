@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#outer{
+			width: 330px;
+			height: 100px;
+			margin:10px auto;
+		}
+		#outer div{
+			float: left;
+			width: 100px;
+			height: 100px;
+			background-color: #000;
+			margin:0px 5px;
+		}
+	</style>
+</head>
+<body>
+	<center><button>点击将DIV变成红色</button></center>
+	<div id="outer">
+		<div></div>
+		<div></div>
+		<div></div>
+	</div>
+	<script>
+		var btn = document.getElementsByTagName('button')[0],
+			div = document.getElementById('outer').getElementsByTagName('div');
+		btn.onclick = function(){
+			for (var i = 0; i < div.length; i++) {
+				change(div[i]);
+			}
+		}
+		function change(a){
+			a.style.backgroundColor = 'red';
+		}
+	</script>
+</body>
+</html>
