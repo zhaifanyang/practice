@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{text-align: center}
+	</style>
+</head>
+<body>
+	<button>0</button>
+	<script>
+	var btn = document.getElementsByTagName('button')[0],
+		sum = 0;
+	btn.onclick = function(){
+		btn.innerHTML = ++sum;
+		alert(sum);
+	}
+	</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{font:12px/1.5 Tahoma;text-align: center}
+		.first{background-color: #eee;width: 50px;border: 1px solid #ccc;padding:2px 5px;}
+		strong{padding: 5px;}
+		span{color: red;font-weight: 600;padding-left: 5px}
+	</style>
+</head>
+<body>
+	<input class="first" type="text" name="">
+	<strong>vs</strong>
+	<input class="first" type="text" name="">
+	<input type="button" value="最大的数是》">
+	<span>?</span>
+	<script>
+	var inp = document.getElementsByTagName('input'),
+		span = document.getElementsByTagName('span')[0];
+		for (var i = 0; i < inp.length-1; i++) {
+			inp[i].onkeyup = function(){
+				this.value = this.value.replace(/[^\d]/,"")
+			}
+		}
+		inp[2].onclick = function(){
+			inp[0].value==''||inp[1].value==''?alert('请输入数字'):
+			span.innerHTML=Math.max(inp[0].value,inp[1].value)
+		}
+	</script>
+</body>
+</html>

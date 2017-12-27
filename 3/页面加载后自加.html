@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{text-align: center;font:30px/1.5 Tahoma;}
+		span{font-weight: 600}
+	</style>
+</head>
+<body>
+	<span>0</span>
+	<script>
+		var span = document.getElementsByTagName('span')[0];
+		var i =0;
+			setInterval(updataNum,1000);
+			function updataNum(){
+				span.innerHTML = ++i;
+			}
+	</script>
+</body>
+</html>
