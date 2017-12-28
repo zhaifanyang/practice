@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body,h1,input,ul,li,input{margin: 0;padding: 0;font: 18px/1.5 Arial;}
+		ul,li{list-style: none}
+		#calc{width: 300px;margin: 10px auto;position: relative;}
+		h1{font-size: 14px;display: block;height: 20px;;line-height: 20px;color: #fff;background-color: #000;text-align: center}
+		input{width: 290px;padding: 0 5px;height: 84px;background-color: #D5D9B8;border:none;text-align: right;font-size: 40px;font-weight: 600}
+		ul{padding: 0 0 15px 10px;background: url(images/bg.jpg);overflow: hidden;position: relative;}
+		li{width: 63px;height: 40px;float: left;margin: 18px 9px 0 0;text-align: center;font-size: 24px;color: #fff;font-weight: bold;cursor: pointer;;line-height: 40px}
+		.zero{width: 136px;background: url(images/btn.png)0px -82px;}
+		.zero:hover{background-position: 0px -123px}
+		.val{width: 63px;height: 99px;line-height: 99px;position: absolute;top:173px;right:0px;background: url(images/btn.png)0px -163px;}
+		.val:hover{background-position: -63px -163px}
+		.btn-1{background: url(images/btn.png)0px 0px;}
+		.btn-1:hover{background-position: -63px 0px}
+		.btn-2{background: url(images/btn.png)0px -40px;}
+		.btn-2:hover{background-position: -63px -40px}
+		#input2{position: absolute;top: 20px;right: 0;padding-right: 15px;font-size: 12px;color:#000;height: 20px;width: 280px;text-align: right}
+	</style>
+</head>
+<body>
+	<div id="calc">
+		<h1>计算器</h1>
+		<input type="text" readonly maxlength="9"  value="0">
+		<ul>
+			<li class="btn-2">c</li>
+			<li class="btn-2">%</li>
+			<li class="btn-2">÷</li>
+			<li class="btn-2">x</li>
+			<li class="btn-1">7</li>
+			<li class="btn-1">8</li>
+			<li class="btn-1">9</li>
+			<li class="btn-2">-</li>
+			<li class="btn-1">4</li>
+			<li class="btn-1">5</li>
+			<li class="btn-1">6</li>
+			<li class="btn-2">+</li>
+			<li class="btn-1">1</li>
+			<li class="btn-1">2</li>
+			<li class="btn-1">3</li>
+			<li class="zero">0</li>
+			<li class="btn-1">.</li>
+			<li class="val">=</li>
+		</ul>
+		<input type="text" readonly="readonly" id="input2" value='2132'>
+	</div>
+	<script>
+	var oCalc = document.getElementById("calc");
+	var aA = oCalc.getElementsByTagName("ul")[0].getElementsByTagName('li');
+	var input = oCalc.getElementsByTagName("input")[0];
+	var input2 = document.getElementById("input2");
+	var s = false;
+	var i = 0;
+	
+	for (i = 0; i < aA.length; i++){
+		aA[i].onclick = function (){
+			switch(this.innerHTML)
+			{
+				case "c":
+					input.value =  0;
+					input2.value = "";
+					break;
+				case "%":
+					count("%")
+					break;
+				case "÷":
+					count("/")
+					break;
+				case "x":
+					count("*")
+					break;
+				case "-":
+					count("-")
+					break;
+				case "+":
+					count("+")
+					break;
+				case "=":
+					s || (input2.value += input.value);
+					input.value = eval(input2.value.replace(/\%\/\*\-\+/,''));
+					input.value = input.value.substr(0,10).replace("NaN",0);
+					s = true;
+					break;
+				case ".":
+					if(input.value.search(/[\.\%\/\*\-\+]/) != -1)
+					break;
+				default:
+					s && (input.value = 0, input2.value = "", s = false);
+					input.value.length < 10 && (input.value = (input.value + this.innerHTML).replace(/^[0\%\/\*\-\+](\d)/,"$1"));
+			}
+		}	
+	}
+	
+	function count(a){
+
+		if(s)
+		{
+			input2.value = input.value + a;
+			input.value = a;	
+			s = false;
+		}
+		else
+		{
+			/[\%\/\*\-\+]$/.test(input.value) || (input2.value += input.value);
+			input.value = a;
+			/[\%\/\*\-\+]$/.test(input2.value) || (input2.value += input.value);
+			input2.value = input2.value.slice(-1) != a ? input2.value.replace(/.$/,a) : input2.value
+		}
+	}
+	</script>
+</body>
+</html>

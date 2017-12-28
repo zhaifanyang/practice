@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body,div,ul,li,p{margin:0;padding:0;}
+		body{font:12px/1.5 Arial;}
+		ul{list-style-type:none;}
+		/*#nav,#nav ul,#nav ul li,#nav ul li a:hover,#nav .subnav,#nav .subnav p,#nav .subnav p span{background-color: orange}*/
+		#nav{position:relative;width:1000px;margin:10px auto;background-color: orange}
+		#nav ul{height:36px;line-height:36px;overflow:hidden;}
+		#nav ul li{float:left;width:110px;background-position:0 -108px;}
+		#nav ul li a{font-size:14px;color:#fff;width:102px;display:block;text-align:center;text-decoration:none;}
+		#nav ul li a:hover{font-weight:700;background-color:rgba(0,0,0,.3);}
+		#nav .subnav{display:none;position:absolute;top:41px;width:auto!important;min-width:110px;height:27px;line-height:27px;white-space:nowrap;background-color: orange;}
+		#nav .subnav.current{display: block;}
+		#nav .subnav p{margin-left:10px;padding-right:10px;background-position:right -234px;}
+		#nav .subnav p span{display:block;color:#235e99;background-repeat:repeat-x;background-position:0 -207px;}
+		#nav .subnav p a{font-size:12px;display:inline;color:#235e99;text-decoration:none;margin:0 5px;padding:0 2px;}
+		#nav .subnav p a:hover{font-weight:400;border-bottom:2px solid;}
+		#nav .subnav .arrow{position:absolute;top:-5px;left:45px;width: 0;height: 0;border-left: 10px solid transparent;border-right: 10px solid transparent;border-bottom: 12px solid orange;}
+		
+	</style>
+</head>
+<body>
+	<div id="nav">
+	    <ul>
+	        <li><a href="javascript:;">菜单一</a></li>
+	        <li>
+	            <a href="javascript:;">菜单二</a>
+	            <div class="subnav">
+	                <em class="arrow"></em>
+	                <p>        	
+	                    <span>
+	                        <a href="javascript:;">2</a>|
+	                        <a href="javascript:;">2</a>|
+	                        <a href="javascript:;">2</a>|
+	                        <a href="javascript:;">2</a>|
+	                        <a href="javascript:;">2</a>|
+	                        <a href="javascript:;">2</a>|
+	                        <a href="javascript:;">2</a>|
+	                        <a href="javascript:;">2</a>
+	                    </span>
+	                </p>
+	            </div>
+	        </li>
+	        <li>
+	            <a href="javascript:;">菜单三</a>
+	            <div class="subnav">
+	                <em class="arrow"></em>
+	                <p>        	
+	                    <span>
+	                        <a href="javascript:;">3</a>|
+	                        <a href="javascript:;">3</a>|
+	                        <a href="javascript:;">3</a>|
+	                        <a href="javascript:;">3</a>|
+	                        <a href="javascript:;">3</a>|
+	                        <a href="javascript:;">3</a>
+	                    </span>
+	                </p>
+	            </div>
+	        </li>
+	        <li>
+	            <a href="javascript:;">菜单四</a>
+	            <div class="subnav">
+	                <em class="arrow"></em>
+	                <p>        	
+	                    <span>
+	                        <a href="javascript:;">4</a>|
+	                        <a href="javascript:;">4</a>|
+	                        <a href="javascript:;">4</a>|
+	                        <a href="javascript:;">4</a>|
+	                        <a href="javascript:;">4</a>
+	                    </span>
+	                </p>
+	            </div>
+	        </li>
+	        <li>
+	            <a href="javascript:;">菜单五</a>
+	            <div class="subnav">
+	                <em class="arrow"></em>
+	                <p>        	
+	                    <span>
+	                        <a href="javascript:;">5</a>|
+	                        <a href="javascript:;">5</a>|
+	                        <a href="javascript:;">5</a>|
+	                        <a href="javascript:;">5</a>|
+	                        <a href="javascript:;">5</a>
+	                    </span>
+	                </p>
+	            </div>
+	        </li>
+	        <li>
+	            <a href="javascript:;">菜单六</a>
+	            <div class="subnav">
+	                <em class="arrow"></em>
+	                <p>        	
+	                    <span>
+	                        <a href="javascript:;">6</a>|
+	                        <a href="javascript:;">6</a>|
+	                        <a href="javascript:;">6</a>|
+	                        <a href="javascript:;">6</a>|
+	                        <a href="javascript:;">6</a>|
+	                        <a href="javascript:;">6</a>|
+	                        <a href="javascript:;">6</a>
+	                    </span>
+	                </p>
+	            </div>
+	        </li>
+	        <li>
+	            <a href="javascript:;">菜单七</a>
+	            <div class="subnav">
+	                <em class="arrow"></em>
+	                <p>        	
+	                    <span>
+	                        <a href="javascript:;">7</a>|
+	                        <a href="javascript:;">7</a>|
+	                        <a href="javascript:;">7</a>|
+	                        <a href="javascript:;">7</a>
+	                    </span>
+	                </p>
+	            </div>
+	        </li>
+	        <li>
+	            <a href="javascript:;">菜单八</a>
+	            <div class="subnav">
+	                <em class="arrow"></em>
+	                <p>        	
+	                    <span>
+	                        <a href="javascript:;">8</a>|
+	                        <a href="javascript:;">8</a>|
+	                        <a href="javascript:;">8</a>|
+	                        <a href="javascript:;">8</a>|
+	                        <a href="javascript:;">8</a>|
+	                        <a href="javascript:;">8</a>|
+	                        <a href="javascript:;">8</a>|
+	                        <a href="javascript:;">8</a>
+	                    </span>
+	                </p>
+	            </div>
+	        </li>        
+	    </ul>    
+	</div>
+	<script>
+		var nav = document.getElementById('nav'),
+			liArr = nav.getElementsByTagName("li"),
+			sub = nav.getElementsByTagName('div');
+			for (var i = 1; i < liArr.length; i++) {
+				liArr[i].index = i-1;
+				liArr[i].onmouseover = function(){
+					sub[this.index].style.display = 'block'
+				}
+				liArr[i].onmouseout = function(){
+					sub[this.index].style.display = 'none'
+				}
+			}
+	</script>
+</body>
+</html>

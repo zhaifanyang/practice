@@ -17,15 +17,9 @@
 		input[0].value = input[0].value.replace(/[^\d]/,'');
 	}
 	input[1].onclick = function(){
-		input[0].value == ''?alert('请输入数字'):Num();
+		input[0].value == ''?alert('请输入数字'):alert(/^\d{2}$/.test(parseInt(input[0].value))?'√这是两位数字':'这是'+input[0].value.length+'位数');
 	}
-	function Num(){
-		if (input[0].value.length=='2') {
-			alert('√这是两位数');
-		}else{
-			alert('这是'+input[0].value.length+'位数')
-		}
-	}
+
 	</script>
 </body>
 </html>
