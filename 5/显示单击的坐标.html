@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<pre>
+		&lt;script&gt;
+			var event = event || window.event;
+			alert(event.clientX+event.clientY);
+		&lt;/script&gt;
+	</pre>
+	<script>
+	window.onclick = function(e){
+		e = e || winodw.e;
+		alert('坐标:['+e.clientX+','+e.clientY+']');
+	}
+	</script>
+</body>
+</html>
