@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<pre style="background: #eee;border: 1px dotted green;color:green;margin:0;padding:0">
+		&lt;script&gt;
+			window.onload = function(){
+				var p = document.getElementsByTagName('p')[0];
+				document.onkeydown = function(e){
+					e = e || window.e;
+					p.innerHTML = e.keyCode
+				}
+			}
+		&lt;/script&gt;
+	</pre>
+	<p style="text-align: center">将显示在这里</p>
+	<script>
+	var p = document.getElementsByTagName('p')[0];
+	document.onkeydown = function(e){
+		var e = e || window.e;
+		p.innerHTML = e.keyCode;
+	}
+	</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义右键菜单</title>
+	<style>
+		body,ul,p{margin: 0;padding: 0;font:12px Arial;}
+		ul{list-style: none}
+		a{text-decoration: none}
+		p{text-align: center}
+		ul{width: 101px;border: 1px solid #8E8E8E;position: absolute;padding:1px;display: none}
+		li{position:relative;padding-left: 24px}
+		i{position:absolute;width: 24px;height: 24px;top:0px;left:0px;background: url(images/ico.png)no-repeat;background-color: #E9E9D7;}
+		.copy{background-position: 0px -24px}
+		a{display:block;color: #323232;height: 24px;line-height: 24px;padding-left: 4px}
+		li:hover i{background-color: #999;}
+		li:hover a{color: #fff;background-color: #8f8f8f;}
+	</style>
+</head>
+<body>
+	<p>自定义右键菜单,请在页面点击右键查看效果</p>
+    <ul>
+    	<li><i></i><a href="#">剪切</a></li>
+    	<li><i class="copy"></i><a href="#">复制</a></li>
+    </ul>
+    <script>
+    	var ul = document.getElementsByTagName('ul')[0],
+    		liArr = ul.getElementsByTagName('li');
+    		document.oncontextmenu = function(e){
+    			var e = e || window.e;
+    			ul.style.left = e.clientX + 'px';
+    			ul.style.top = e.clientY + 'px';
+    			ul.style.display = 'block';
+    			return false
+    		}
+    		document.onclick = function(){
+    			ul.style.display = 'none'
+    		}
+    		for (var i = 0; i < liArr.length; i++) {
+    			liArr[i].onclick = function(){
+    				ul.style.display = 'none'
+    			}
+    		}
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>DIV闪烁</title>
+	<style>
+		#box{margin: 100px auto;width: 200px;height: 200px;background-color: orange;color: #fff;line-height: 200px;text-align: center;}
+	</style>
+</head>
+<body>
+	<div id="box">div闪烁</div>
+	<script>
+		var box = document.getElementById('box');
+		box.onclick = function(){
+			var i = 0;
+			var timer = setInterval(function(){
+				box.style.width = i++ % 2 ? '400px' : '200px';
+				i > 8 && clearInterval(timer)
+			},100)
+			
+		}
+	</script>
+</body>
+</html>

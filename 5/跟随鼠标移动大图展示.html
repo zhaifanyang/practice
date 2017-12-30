@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片展示</title>
+	<style>
+		* {
+		  margin: 0;
+		  padding: 0;
+		}
+		.items {
+		  position: relative;
+		  top: 20px;
+		  left: 100px;
+		  width: 225px;
+		  height: 225px;
+		}
+		.items .main-img {
+		  width: 100%;
+		  height: 100%;
+		  position: relative;
+		  border: 1px solid #eee;
+		}
+		.items .main-img img {
+		  width: 100%;
+		  height: 100%;
+		  position: relative;
+		}
+		.items .big-box {
+		  position: absolute;
+		  top: 0px;
+		  left: 450px;
+		  width: 200%;
+		  height: 200%;
+		  overflow: hidden;
+		  border: 1px solid #eee;
+		  display: none;
+		}
+		.items .big-box img {
+		  width: 100%;
+		  height: 100%;
+		  position: absolute;
+		}
+	</style>
+	<script type="text/javascript">
+	//1获取相关元素
+	//2绑定点击事件，计算放大比例scale
+		window.onload = function(){
+			var items = document.getElementById('items');
+			var mask = document.getElementById('mask');
+			var img = mask.getElementsByTagName('img')[0];
+			var bigBox = document.getElementById('big-box');
+			// var scale = bigImg.width/img.width;
+			// console.log(bigImg.width);
+			// 隐藏元素无法获取到宽高值
+			mask.onmouseover = function(){
+				bigBox.style.display = 'block';
+			}
+			mask.onmouseout = function(){
+				bigBox.style.display = 'none';
+			}
+			mask.onmousemove = function(e){
+				var bigImg = bigBox.getElementsByTagName('img')[0];
+				var _e = e || window.e;//事件对象
+				var x = _e.clientX - items.offsetLeft;//对象在盒子横向偏移量
+				//offsetLeft 相对于定位的父盒子左侧距离
+				var y = _e.clientY- items.offsetTop;//对象在盒子竖向偏移量
+				bigBox.style.left = x+20 + 'px';
+				bigBox.style.top = y+20 + 'px';
+			}
+		}
+		
+	</script>
+</head>
+<body>
+	<div class="items" id="items">
+		<div class="main-img" id='mask'>
+			<img src="./images/img.jpg">
+		</div>
+		<div class="big-box" id="big-box"><img src="./images/img.jpg"></div>
+	</div>
+</body>
+</html>
