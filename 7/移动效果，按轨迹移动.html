@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	body{background: url(images/timg.jpg);background-size: cover;background-repeat: no-repeat;}
+		#dragon{width: 250px;height: 112px;background: url('images/dragon.png');position: absolute;top: 246px;left: 443px;background-size: cover}
+		#person{width: 140px;height: 83px;background: url('images/person1.png');position: absolute;top: 256px;left:331px;background-size: cover;}
+	</style>
+</head>
+<body>
+	<input type="button" value="根据鼠标点击位置移动"><input type="button" value="根据标鼠标轨迹移动">
+	<p>请点击按钮激活功能！</p>
+	<div id="dragon"></div>
+	<div id="person"></div>
+	<script>
+	var dragon = document.getElementById('dragon'),
+		person = document.getElementById('person'),
+		timer = null;
+		dragon.onclick = function(){
+			clearTimeout(timer);
+			person.style.background='url(images/person1.gif)';
+			dragon.style.background='url(images/dragon.gif)';
+			dragon.style.backgroundSize = "cover";
+		 	person.style.backgroundSize = "cover";
+		 	setTimeout(function(){
+		 		person.style.background='url(images/person1.png)';
+				dragon.style.background='url(images/dragon.png)';
+				dragon.style.backgroundSize = "cover";
+		 		person.style.backgroundSize = "cover";
+		 	},4000)
+		}
+	</script>
+</body>
+</html>
