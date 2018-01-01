@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>滑块</title>
+	<style>
+		body,span{margin: 0;padding: 0;}
+		.box{width: 300px;height: 50px;background-color: #2c2c2c;border-radius: 10px;margin: 10px auto;position: relative;box-shadow: 1px 1px 1px #666}
+		.box span{width: 75px;height: 48px;line-height: 48px;text-align: center;font-weight: bold;;font-size:18px;border-radius: 12px;background-color: #fff;position: absolute;top: 1px;cursor: pointer;}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<span>滑块</span>
+	</div>
+	<script>
+		var span = document.getElementsByTagName('span')[0],
+			box = document.getElementsByTagName('div')[0],
+			x = 0;
+
+		span.onmousedown = function(event){
+			var event = event || window.event;
+			var left = event.clientX - span.offsetLeft;
+			span.releaseCapture && span.releaseCapture();
+			document.onmousemove = function(event){
+				var event = event || window.event;
+				x = event.clientX - left;
+				x = x < 0 ? 0 : x;
+				x = x > (box.offsetWidth - span.offsetWidth) ? (box.offsetWidth - span.offsetWidth) : x;
+				span.style.left = x +'px';
+			}
+			document.onmouseup = function(){
+				document.onmousemove = null;
+				document.onmouseup = null;
+				span.releaseCapture && span.releaseCapture();
+				x < (box.offsetWidth - span.offsetWidth)/2 ? (act(span,{left:0}),document.body.style.background = 'none') : (act(span,{left:(box.offsetWidth - span.offsetWidth)}),(document.body.style.background = 'url(images/timg.jpg)',document.body.style.backgroundSize = 'cover'));
+
+			}
+		}
+		
+		function act(obj, json, fn) {
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function() {
+            var stop = true;
+                for (var attr in json) {
+                    var cur = 0;
+                    if (attr == 'opacity') {
+                    	cur = Math.round(parseFloat(getStyle(obj, attr)) * 100);
+                    }else{
+                   	    cur = parseInt(getStyle(obj, attr));  
+                    }
+                    var speed = 0;
+                    speed = (json[attr] - cur) / 5;
+                    speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+                    if (cur != json[attr]) {
+                        stop = false;
+                    }
+                    cur += speed;
+                    if (attr == 'opacity') {
+                        obj.style.filter = 'alpha(opacity:' + cur + ')';
+                        obj.style.opacity = cur / 100;
+                    }
+                    obj.style[attr] = cur + 'px';
+                    if (stop) {
+                        clearInterval(obj.timer);
+                        fn&&fn();
+                    }
+                }
+            }, 30);
+        }
+        function getStyle(obj, attr) {
+            if (obj.currentStyle) {
+                return obj.currentStyle[attr];
+            } else {
+                return getComputedStyle(obj, false)[attr];
+            }
+        }
+	</script>
+</body>
+</html>
