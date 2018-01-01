@@ -21,21 +21,22 @@
 		span.onmousedown = function(event){
 			var event = event || window.event;
 			var left = event.clientX - span.offsetLeft;
-			span.releaseCapture && span.releaseCapture();
 			document.onmousemove = function(event){
 				var event = event || window.event;
 				x = event.clientX - left;
-				x = x < 0 ? 0 : x;
-				x = x > (box.offsetWidth - span.offsetWidth) ? (box.offsetWidth - span.offsetWidth) : x;
+				x < 0 && (x = 0);
+				x > (box.offsetWidth - span.offsetWidth) && (x = box.offsetWidth - span.offsetWidth);
 				span.style.left = x +'px';
+                return false
 			}
 			document.onmouseup = function(){
 				document.onmousemove = null;
 				document.onmouseup = null;
 				span.releaseCapture && span.releaseCapture();
 				x < (box.offsetWidth - span.offsetWidth)/2 ? (act(span,{left:0}),document.body.style.background = 'none') : (act(span,{left:(box.offsetWidth - span.offsetWidth)}),(document.body.style.background = 'url(images/timg.jpg)',document.body.style.backgroundSize = 'cover'));
-
 			}
+            this.setCapture && this.setCapture();
+            return false
 		}
 		
 		function act(obj, json, fn) {
