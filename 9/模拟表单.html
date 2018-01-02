@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		input[type="radio"] + label::before {
+		    content: "\a0"; /*不换行空格*/
+		    display: inline-block;
+		    vertical-align: middle;
+		    font-size: 18px;
+		    width: 1em;
+		    height: 1em;
+		    margin-right: .4em;
+		    border-radius: 50%;
+		    border: 1px solid #000;
+		    text-indent: .15em;
+		    line-height: 1; 
+		}
+		input[type="radio"]:checked + label::before {
+		    background-color: #000;
+		    background-clip: content-box;
+		    padding: .1em;
+		    width: .8em;
+		    height: .8em;
+		}
+		input[type="radio"] {
+		    position: absolute;
+		    clip: rect(0, 0, 0, 0);
+		}
+	</style>
+	<script type="text/javascript">
+
+
+	// 获取class
+	function getClass(sClass, oParent)
+	{
+		var aClass = [];	
+		var reClass = new RegExp("(^| )" + sClass + "( |$)");
+		var aElem = (oParent || document).getElementsByTagName("*");
+		for (var i = 0; i < aElem.length; i++) reClass.test(aElem[i].className) && aClass.push(aElem[i]);
+		return aClass
+	}
+	// class是否存在
+	function hasClass(obj, sClass)
+	{
+		var reg = new RegExp("(^|\\s)" + sClass + "(\\s|$)");
+		return reg.test(obj.className)
+	}
+	// 添加class
+	function addClass(obj, sClass)
+	{
+		hasClass(obj, sClass) || (obj.className += " "+sClass)
+	}
+	// 删除class
+	function removeClass(obj, sClass)
+	{
+		if (hasClass(obj, sClass))
+		{
+			var reg = new RegExp("(^|\\s)" + sClass + "(\\s|$)");
+			obj.className = obj.className.replace(reg, "");
+		}
+	}
+	// 上一个元素
+	function prevElement(obj)
+	{
+		return obj.previousSibling || obj.previousElementSibling || null	
+	}
+	// 下一个元素
+	function nextElement(obj)
+	{
+		return obj.nextSibling || obj.nextElementSibling || null	
+	}
+
+	</script>
+</head>
+<body>
+	<div class="female">
+	    <input type="radio" id="female" name="sex" />
+	    <label for="female">女</label>
+	</div>
+	<div class="male">                
+	    <input type="radio" id="male" name="sex" />
+	    <label for="male">男</label>
+	</div>
+</body>
+</html>
