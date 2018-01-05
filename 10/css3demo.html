@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin: 0;padding: 0;}
+		#li{width: 210px;height: 210px;float: left;margin: 0px 0px 20px 20px;position: relative;overflow: hidden;background: #383838;cursor: pointer;transition: all 0.3s linear;}
+		#li div{position: absolute;z-index: 1;width: 190px;height: 190px;top: 10px;left: 10px;background: rgba(209,51,49,0.8);}
+		#li div{-webkit-transition: all 0.3s linear;-webkit-transform: rotate(90deg);opacity: 0;-webkit-transform-origin: 100% 100%;transition: all 0.3s linear;transform: rotate(90deg);transform-origin: 100% 100%;}
+		#li div span{width: 100%;display: inline-block;text-align: center;font-size: 20px;color: #fff;margin-top: 10px;}
+		#li div p{padding-top: 10px;font-size: 12px;text-align: center;color: #fff;}
+		#li img{display: block;margin: 0px auto;margin-top: 10px;cursor: pointer;width: 100%;height: 100%;}
+		#li:hover div{-webkit-transform:rotate(0deg);opacity:1;}
+	</style>
+</head>
+<body>
+	<div id="li" class="transform">
+	    <div>
+	        <span>Image</span>
+	        <p>测试图片</p>
+	    </div>
+	    <img src="../9/images/01.jpg">
+    </div>
+</body>
+</html>
