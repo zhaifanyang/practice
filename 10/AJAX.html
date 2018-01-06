@@ -32,4 +32,27 @@
 		}
 	}
 	console.log('获取成功');
+	//JQuery
+	$.ajax({
+	    url: url,    //请求的url地址
+	    dataType: datatype,   //服务器返回的值类型
+	    async: true, //请求是否异步，默认为异步
+	    data: { 
+	        "id": "value" ,
+	        "param":"param"
+	    },//发送到服务器的参数
+	    type: "GET",   //请求方式
+	    beforeSend: function() {
+	        //请求前的处理
+	    },
+	    success: function(data) {
+	        //请求成功时处理
+	    },
+	    complete: function() {
+	        //请求完成的处理
+	    },
+	    error: function() {
+	        //请求出错处理
+	    }
+	});
 </script>
