@@ -9,21 +9,23 @@
 	</style>
 </head>
 <body>
-	<h1>访问的页面不存在,5秒后跳转</h1>
+	<h1>访问的页面不存在,5秒后自动跳转.....</h1>
 	<h2>404</h2>
 	<button>立即返回</button>
 </body>
 	<script>
 		var btn = document.getElementsByTagName('button')[0],
-			num = 0;
+			h1 = document.getElementsByTagName('h1')[0],
+			num = 5;
 		btn.onclick = function(){
 			window.location.href = 'http://www.baidu.com'
 		}
 		setInterval(function(){
-			num ++;
-			if (num == '5') {
+			num --;
+			if (num == '0') {
 				window.location.href = './index.html'
 			}
+			h1.innerHTML = h1.innerHTML.replace(/\d/g,num)
 		},1000)
 	</script>
 </html>
