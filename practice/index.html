@@ -24,7 +24,7 @@
         <script type="text/javascript" src="jquery.js"></script>  
         <script type="text/javascript">  
             $(function(){
-            	$('.box1').bind('mouseover mouseout',function(){
+            	$('.box1').on('mouseover mouseout',function(){
             		$('.box2').toggleClass('show')
             	})
             	$(window).scroll(function(){
