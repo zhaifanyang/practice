@@ -1,10 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-</head>
-<body>
-	<h1>这是主页</h1>
-</body>
-</html>
+<!doctype html>  
+<html>  
+    <head>  
+        <meta charset="utf-8">  
+        <title>1</title>  
+        <meta name="Keywords" content="关键词,关键词">  
+        <meta name="Description" content="">  
+        <style type="text/css">  
+            *{margin:0;padding:0;}  
+            body{height: 4000px;}
+            div{width:200px;height:50px;margin: 10px auto;}  
+            h1{text-align: center}
+            .box1{background:#066;cursor:pointer;}  
+            .box2{background:#0cf;display:none;}  
+            .show{display:block;}  
+            #scrollTop{position: fixed;width: 100px;height: 50px;line-height:50px;text-align: center;bottom: 20px;right: 10px;background-color: orange;cursor: pointer;display: none}
+        </style>  
+    </head>  
+    <body>  
+    	<h1>主页</h1>
+        <div class="box1" title="鼠标划过此处下面的图片会显示"></div>  
+        <div class="box2"></div>  
+        <div id="scrollTop">回顶部:<span></span></div>
+        <script type="text/javascript" src="jquery.js"></script>  
+        <script type="text/javascript">  
+            $(function(){
+            	$('.box1').bind('mouseover mouseout',function(){
+            		$('.box2').toggleClass('show')
+            	})
+            	$(window).scroll(function(){
+            		$('span').text($(window).scrollTop())
+            		console.log($(window).scrollTop())
+            		if ($(window).scrollTop() > 200){
+            			$('#scrollTop').fadeIn()
+            		}else{
+            			$('#scrollTop').stop(true,true).fadeOut(); 
+            		}
+            	})
+            	$('#scrollTop').click(function(){
+            		$('html,body').animate({
+            			scrollTop:0
+            		},300)
+            	})
+            })
+        </script>  
+    </body>  
+</html>  
