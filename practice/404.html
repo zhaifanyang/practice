@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		h1,h2{text-align: center}
+		button{display: block;margin: 10px auto;}
+	</style>
+</head>
+<body>
+	<h1>访问的页面不存在,5秒后跳转</h1>
+	<h2>404</h2>
+	<button>立即返回</button>
+</body>
+	<script>
+		var btn = document.getElementsByTagName('button')[0],
+			num = 0;
+		btn.onclick = function(){
+			window.location.href = 'http://www.baidu.com'
+		}
+		setInterval(function(){
+			num ++;
+			if (num == '5') {
+				window.location.href = './index.html'
+			}
+		},1000)
+	</script>
+</html>
